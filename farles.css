@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 16, 2017, 12:10:23 PM
+    Author     : Don
+*/
+       Button{
+         -fx-background-color:lightblue; 
+         
+         }
+         Text{
+             -fx-font: normal bold 15px 'Helvetica';
+         }
+       GridPane{
+            -fx-background-color:white;
+            -fx-spacing:30;
+       }
+       .text3{
+           color:red;
+       }
+       Stage{
+           -fx-background-color:brown;
+       }
