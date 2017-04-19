@@ -3,13 +3,11 @@ package farlesmedical;
 import java.sql.Connection ; //used to connect to our database
 import java.sql.DriverManager ;
 import java.sql.SQLException ;
-import javafx.scene.control.TextField;
 import java.sql.Statement ;
 import java.sql.ResultSet ; //TO handle data returned from the table.
 
 import java.util.List ;
 import java.util.ArrayList ;
-import static javafx.application.Application.launch;
 
 public class DBconnect {
  
@@ -30,7 +28,19 @@ public class DBconnect {
             con.close();
         }
     }
+    //To add a person to the database
+    public void addPatient() throws SQLException{
+    Statement stmnt = con.createStatement();
+    ResultSet rs = stmnt.executeQuery("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence,Inference)"
+                                                           +"VALUES();");
     
+    
+    }
+    
+    
+    
+    
+    //To get a Person from the table
     public List<Patient> getPersonList() throws SQLException { // this method returns an arrayList
        try (
             Statement stmnt = con.createStatement(); //we create a statement object to execute SQL Queries.
@@ -46,7 +56,7 @@ public class DBconnect {
                    String Inference = rs.getString("Inference");
                    String Residence = rs.getString("Residence");
                    Patient patient = new Patient(firstName, lastName,PhoneNumber,Inference,Residence);
-                    
+                    personList.add(patient);
             }
            
            return personList;   
