@@ -10,17 +10,16 @@ and open the template in the editor.
        Button{
          -fx-background-color:lightblue; 
          
+         
          }
          Text{
-             -fx-font: normal bold 15px 'Helvetica';
+             -fx-font: normal bold 20px 'Palatino';
          }
        GridPane{
-            -fx-background-color:white;
-            -fx-spacing:30;
+            -fx-background-color:maroon;
+            -fx-spacing:50;
        }
        .text3{
-           color:red;
+           color:white;
        }
-       Stage{
-           -fx-background-color:brown;
-       }
+      

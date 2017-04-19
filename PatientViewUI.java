@@ -32,14 +32,13 @@ public class PatientViewUI extends Application {
            @Override
              public void handle(MouseEvent e){
              pat.start(primaryStage);
-             
-             }
+            }
          
        };
        
         button.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
        root.add(button,0,0);
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root,800,600);
          String css = PatientViewUI.class.getResource("farles.css").toExternalForm(); // to load the external CSS file.
           scene.getStylesheets().add(css); 
         primaryStage.setTitle("PATIENTS DIAGNOSED");

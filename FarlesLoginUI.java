@@ -16,7 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
 import javafx.event.EventHandler;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.GridPane;//GridPane lays out its children within a flexible grid of rows and columns
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.Scene;
@@ -50,7 +50,7 @@ public class FarlesLoginUI extends Application {
      @Override
     public void start(Stage primaryStage) { //The primary Stage object created by the platform is passed to the start() method of the Application class
     //Create a label username
-    Text text1 = new Text("UserName");
+    Text text1 = new Text("Username");
     //Create a password
     Text text2 = new Text("Password");
     //Create forgot password
@@ -69,13 +69,13 @@ public class FarlesLoginUI extends Application {
 		gridPane.setPadding(new Insets(10,10,10,10));
 		// setting the vertical and horizontal gaps between the column
 		gridPane.setVgap(5);
-		gridPane.setHgap(5);
+		gridPane.setHgap(10);
 		//set grid alignment
 		gridPane.setAlignment(Pos.CENTER);
-        //Arranging all the nodes in the grid
-		gridPane.add(text1,0,0);
+        //Arranging all the nodes in the grid.GridPane lays out its children within a flexible grid of rows and columns
+		gridPane.add(text1,0,0);// sets the text on the first column first row
 		gridPane.add(username_box,1,0);
-		gridPane.add( text2,0,1);
+		gridPane.add(text2,0,1);
 		gridPane.add(password_box,1,1);
 		gridPane.add(btn1,0,2);
 		gridPane.add(text3,0,4);
@@ -108,7 +108,7 @@ public class FarlesLoginUI extends Application {
                                   }else{
                                    System.out.println("Connection Unsuccefful:");
                                    text3.setText("Sorry try again!");
-                                   text3.getStyleClass().add("farles.css");
+                                   text3.getStyleClass().add("");
                                    username_box.clear();
                                    password_box.clear();
                                }
@@ -124,7 +124,7 @@ public class FarlesLoginUI extends Application {
                 
                 
           //Setting up the stage
-          Scene scene = new Scene(gridPane,500,300);
+          Scene scene = new Scene(gridPane,800,600);
           String css = FarlesLoginUI.class.getResource("farles.css").toExternalForm(); // to load the external CSS file.
           scene.getStylesheets().add(css); 
           primaryStage.setTitle("FARLES ENT CLINIC MEDICAL LOGIN"); //set the title of the Stage window
