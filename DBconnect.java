@@ -2,9 +2,10 @@
 package farlesmedical;
 import java.sql.Connection ; //used to connect to our database
 import java.sql.DriverManager ;
+import java.sql.PreparedStatement;
 import java.sql.SQLException ;
 import java.sql.Statement ;
-import java.sql.ResultSet ; //TO handle data returned from the table.
+import java.sql.ResultSet ; //To handle data returned from the table.
 
 import java.util.List ;
 import java.util.ArrayList ;
@@ -29,11 +30,20 @@ public class DBconnect {
         }
     }
     //To add a person to the database
-    public void addPatient() throws SQLException{
-    Statement stmnt = con.createStatement();
-    ResultSet rs = stmnt.executeQuery("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence,Inference)"
-                                                           +"VALUES();");
+    public  void  addPatient() throws SQLException{
+   
+    AddPatient pat = new AddPatient();
+     PreparedStatement ps  = con.prepareStatement("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence,Inference)"
+                                                           +"VALUES(?,?,?,?,?,?);");
+     
+     ps.setString(1, pat.getFirstName());
+     ps.setString(2, pat.getLastName());
+     ps.setString(3, pat.getPhoneNumber());
+    ps.setString(4, pat.getSex());
+    ps.setString(5, pat.getResidence());
+    ps.setString(6,pat.getInference());
     
+    ps.executeUpdate();
     
     }
     
@@ -56,7 +66,7 @@ public class DBconnect {
                    String Inference = rs.getString("Inference");
                    String Residence = rs.getString("Residence");
                    Patient patient = new Patient(firstName, lastName,PhoneNumber,Inference,Residence);
-                    personList.add(patient);
+                    personList.add(patient);// add the person object to the arraylist.
             }
            
            return personList;   
@@ -82,8 +92,6 @@ public class DBconnect {
             let_in = false;
         }
           }
-        
-        
         }
      return let_in;
      }

@@ -9,17 +9,23 @@ and open the template in the editor.
 */
        Button{
          -fx-background-color:lightblue; 
-         
-         
+         -fx-padding : 5 20 5 20;
+          -fx-text-fill : blueviolet;
+         -fx-font-size : 13;
          }
          Text{
-             -fx-font: normal bold 20px 'Palatino';
+             -fx-font: normal bold 20px 'Helvetica';
+               -fx-text-fill : green;
          }
        GridPane{
-            -fx-background-color:maroon;
+            -fx-background-color:lightyellow;
             -fx-spacing:50;
+            
        }
        .text3{
-           color:white;
+          -fx-text-fill: Red;
        }
-      
+       Button:hover{
+           -fx-background-color : #999;
+           -fx-text-fill : #112;
+       }

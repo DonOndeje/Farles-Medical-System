@@ -47,21 +47,21 @@ public class FarlesLoginUI extends Application {
         PassWord = s;
     }
     
-     @Override
-    public void start(Stage primaryStage) { //The primary Stage object created by the platform is passed to the start() method of the Application class
-    //Create a label username
-    Text text1 = new Text("Username");
-    //Create a password
-    Text text2 = new Text("Password");
-    //Create forgot password
-     Label text3 = new Label();
-    //Create a textfield for email
-    TextField username_box = new TextField();
-    //create a textfield for password
-    TextField password_box = new PasswordField();
-    // creating buttons
-    Button btn1 = new Button("Login");
-             //Creating a Grid Pane
+                                                     @Override
+                                                    public void start(Stage primaryStage) { //The primary Stage object created by the platform is passed to the start() method of the Application class
+                                                    //Create a label username
+                                                    Text text1 = new Text("Username");
+                                                    //Create a password
+                                                    Text text2 = new Text("Password");
+                                                    //Create forgot password
+                                                     Label text3 = new Label();
+                                                    //Create a textfield for email
+                                                    TextField username_box = new TextField();
+                                                    //create a textfield for password
+                                                    TextField password_box = new PasswordField();
+                                                    // creating buttons
+                                                    Button btn1 = new Button("Login");
+                                                             //Creating a Grid Pane
 		GridPane gridPane = new GridPane();
 		//Setting the size of the pane
 		gridPane.setMinSize(400,200);
@@ -72,7 +72,7 @@ public class FarlesLoginUI extends Application {
 		gridPane.setHgap(10);
 		//set grid alignment
 		gridPane.setAlignment(Pos.CENTER);
-        //Arranging all the nodes in the grid.GridPane lays out its children within a flexible grid of rows and columns
+                                                //Arranging all the nodes in the grid.GridPane lays out its children within a flexible grid of rows and columns
 		gridPane.add(text1,0,0);// sets the text on the first column first row
 		gridPane.add(username_box,1,0);
 		gridPane.add(text2,0,1);
@@ -98,19 +98,19 @@ public class FarlesLoginUI extends Application {
                              UserName = String.valueOf(username_box.getText());
                              PassWord = String.valueOf(password_box.getText()); 
                            try {
-                               if(dataAccesor.LoginCredentials()){
-                                // primaryStage.close();
-                                   try {   
+                               if(!dataAccesor.LoginCredentials()){
+                                   System.out.println("Connection Unsuccefful:");
+                                   text3.setText("Sorry try again!");
+                                   text3.getStyleClass().add("text");
+                                   username_box.clear();
+                                   password_box.clear();
+                               }else{
+                                   // primaryStage.close();
+                                   try {
                                        patientView.start(primaryStage);
                                    } catch (Exception ex) {
                                        Logger.getLogger(FarlesLoginUI.class.getName()).log(Level.SEVERE, null, ex);
                                    }
-                                  }else{
-                                   System.out.println("Connection Unsuccefful:");
-                                   text3.setText("Sorry try again!");
-                                   text3.getStyleClass().add("");
-                                   username_box.clear();
-                                   password_box.clear();
                                }
                            } catch (SQLException ex) {
                                Logger.getLogger(FarlesLoginUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,9 +127,9 @@ public class FarlesLoginUI extends Application {
           Scene scene = new Scene(gridPane,800,600);
           String css = FarlesLoginUI.class.getResource("farles.css").toExternalForm(); // to load the external CSS file.
           scene.getStylesheets().add(css); 
-          primaryStage.setTitle("FARLES ENT CLINIC MEDICAL LOGIN"); //set the title of the Stage window
-	  primaryStage.setScene(scene); //we add the scene to the Stage which provides the application window.
-	  primaryStage.show();// display the contents of the stage.
+          primaryStage.setTitle("FARLES ENT CLINIC "); //set the title of the Stage window
+          primaryStage.setScene(scene); //we add the scene to the Stage which provides the application window.
+          primaryStage.show();// display the contents of the stage.
         
 }
     
@@ -137,7 +137,7 @@ public class FarlesLoginUI extends Application {
     
  public static void main(String[] args) throws Exception {
         launch(args);
-     
+   
   }
  }
     
