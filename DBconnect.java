@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException ;
 import java.sql.Statement ;
 import java.sql.ResultSet ; //To handle data returned from the table.
+import javafx.scene.control.TableColumn.CellDataFeatures;
 
 import java.util.List ;
 import java.util.ArrayList ;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class DBconnect {
  
@@ -51,13 +54,13 @@ public class DBconnect {
     
     
     //To get a Person from the table
-    public List<Patient> getPersonList() throws SQLException { // this method returns an arrayList
+    public ObservableList<Patient> getPersonList() throws SQLException { // this method returns an arrayList
        try (
             Statement stmnt = con.createStatement(); //we create a statement object to execute SQL Queries.
             ResultSet rs = stmnt.executeQuery("select * from patient;"); //the executeQuery() method of the Statement class Issues SQL queries.
               // The result of the query is returned as a ResultSet object. 
                ){
-           List<Patient> personList = new ArrayList<>(); //declare an ArrayList to hold the objects of type Patient.
+            ObservableList<Patient> personList = FXCollections.observableArrayList(); //declare an ArrayList to hold the objects of type Patient.
             while(rs.next()){ //The next() method of the ResultSet class returns a boolean value to indicate whether there is move data is available.
                 //Here we analyze the Query results returned as a ResultSet object.
                    String firstName = rs.getString("firstName"); // we use the column names instead of the index 
