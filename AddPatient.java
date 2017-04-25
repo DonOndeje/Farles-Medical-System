@@ -145,12 +145,12 @@ public class AddPatient extends Application {
                      } catch (ClassNotFoundException ex) {
                          Logger.getLogger(AddPatient.class.getName()).log(Level.SEVERE, null, ex); 
                      }
-                       firstName = String.valueOf(firstNameField.getText());
-                       lastName = String.valueOf(lastNameField.getText());
+                       firstName = String.valueOf(firstNameField.getText().toUpperCase());
+                       lastName = String.valueOf(lastNameField.getText().toUpperCase());
                        phoneNumber = String.valueOf(phoneField.getText());
-                       Sex = String.valueOf(SexField.getText());
-                        Residence   =   String.valueOf(ResidenceField.getText());
-                        Inference =  String.valueOf(InferenceField.getText());
+                       Sex = String.valueOf(SexField.getText().toUpperCase());
+                        Residence   =   String.valueOf(ResidenceField.getText().toUpperCase());
+                        Inference =  String.valueOf(InferenceField.getText().toUpperCase());
                      try {
                          obj.addPatient();
                      } catch (SQLException ex) {
