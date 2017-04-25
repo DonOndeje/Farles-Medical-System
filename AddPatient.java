@@ -93,7 +93,7 @@ public class AddPatient extends Application {
             Text inference = new Text("INFERENCE");
             Button btn2 = new Button("Add Patient");
             Button btn3 = new Button("Discard");
-            
+            Button btn4 = new Button("View Added Patients");
       TextField firstNameField = new TextField();
       TextField lastNameField = new TextField();
       TextField phoneField = new TextField();
@@ -115,10 +115,25 @@ public class AddPatient extends Application {
        gridpane.add(InferenceField,1,5);
        gridpane.add(btn2,1,6);
        gridpane.add(btn3,1,7);
+       gridpane.add(btn4,1,8);
        gridpane.setAlignment(Pos.CENTER);
                 gridpane.setVgap(5);
 		gridpane.setHgap(10);
                 EventHandler<MouseEvent> eventHandler;
+                EventHandler<MouseEvent> eventHandler1;
+                PatientViewUI pat = new PatientViewUI();
+                
+                eventHandler1 = new EventHandler<MouseEvent>(){
+                    public void handle(MouseEvent e){
+                        try {
+                            pat.start(primaryStage);
+                        } catch (Exception ex) {
+                            Logger.getLogger(AddPatient.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    };
+                
+                
              eventHandler = new EventHandler<MouseEvent>(){
                  DBconnect   obj = null;
                  @Override
@@ -146,6 +161,7 @@ public class AddPatient extends Application {
                  
              };
               btn2.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler); 
+              btn4.addEventFilter(MouseEvent.MOUSE_CLICKED,eventHandler1);
        Scene scene = new Scene(gridpane,800,600);
           String css = PatientViewUI.class.getResource("farles.css").toExternalForm(); // to load the external CSS file.
           scene.getStylesheets().add(css); 
