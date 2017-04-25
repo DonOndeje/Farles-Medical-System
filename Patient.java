@@ -5,15 +5,27 @@ import javafx.beans.property.StringProperty; //defines read-only properties and 
 import javafx.beans.property.SimpleStringProperty;
 
 
+
 public class Patient {
     // Declare VAriables to hold the field vales from our patient table.
-    private final StringProperty firstName = new SimpleStringProperty(this,"firstName");
+     private final  StringProperty PatientNo = new SimpleStringProperty(this,"PatientNo");
+     private final StringProperty firstName = new SimpleStringProperty(this,"firstName");
     private final StringProperty lastName = new SimpleStringProperty(this, "lastName");
     private final StringProperty Inference = new SimpleStringProperty(this,"Inference");
     private final StringProperty Residence = new SimpleStringProperty(this, "Residence");
     private final StringProperty PhoneNumber = new SimpleStringProperty(this, "PhoneNumber");
+   
     
+  public StringProperty PatientNoProperty(){
+      return PatientNo;
+  }
+  public final String getPatientNo(){
+      return PatientNoProperty().get();
+  }
     
+      public final void setPatientNo(String PatientNo){
+        ResidenceProperty().set(PatientNo);
+    }
     public StringProperty ResidenceProperty(){
         return Residence;
     }
@@ -75,6 +87,8 @@ public StringProperty InferenceProperty(){
         setInference(Inference);
         setResidence(Residence);
     }
+    
+ 
 public Patient(){} // Constructor with no parameters
     
     
