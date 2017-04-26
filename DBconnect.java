@@ -1,6 +1,7 @@
 
 package farlesmedical;
 import java.sql.Connection ; //used to connect to our database
+import java.sql.Date;
 import java.sql.DriverManager ;
 import java.sql.PreparedStatement;
 import java.sql.SQLException ;
@@ -37,7 +38,7 @@ public class DBconnect {
    
     AddPatient pat = new AddPatient();
      PreparedStatement ps  = con.prepareStatement("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence,Inference)"
-                                                           +"VALUES(?,?,?,?,?,?);");
+                                                           +"VALUES(?,?,?,?,?,?,);");
      
      ps.setString(1, pat.getFirstName());
      ps.setString(2, pat.getLastName());
@@ -45,6 +46,7 @@ public class DBconnect {
     ps.setString(4, pat.getSex());
     ps.setString(5, pat.getResidence());
     ps.setString(6,pat.getInference());
+  
     
     ps.executeUpdate();
     
@@ -67,8 +69,10 @@ public class DBconnect {
                    String lastName = rs.getString("lastName");
                    String PhoneNumber = rs.getString("PhoneNumber");
                    String Inference = rs.getString("Inference");
+                   String Sex = rs.getString("Sex");
                    String Residence = rs.getString("Residence");
-                   Patient patient = new Patient(firstName, lastName,PhoneNumber,Inference,Residence);
+                   Date date = rs.getDate("Date");
+                   Patient patient = new Patient(firstName, lastName,PhoneNumber,Sex,Inference,Residence,date);
                     personList.add(patient);// add the person object to the arraylist.
             }
            
