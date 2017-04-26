@@ -1,6 +1,7 @@
 
 package farlesmedical;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,11 @@ public class AddPatient extends Application {
              private  static String Sex ;
              private  static String Residence;
              private  static String Inference;
+          
+             
+             
+         
+
 
     public String getFirstName() {
         return firstName;
