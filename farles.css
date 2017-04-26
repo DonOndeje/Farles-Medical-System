@@ -14,7 +14,7 @@ and open the template in the editor.
          -fx-font-size : 13;
          }
          Text{
-             -fx-font: normal bold 20px 'Helvetica';
+             -fx-font: normal bold 20px 'San-serif';
                -fx-text-fill : green;
          }
        GridPane{
@@ -29,3 +29,4 @@ and open the template in the editor.
            -fx-background-color : #999;
            -fx-text-fill : #112;
        }
+
