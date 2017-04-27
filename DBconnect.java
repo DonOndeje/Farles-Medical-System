@@ -38,7 +38,7 @@ public class DBconnect {
    
     AddPatient pat = new AddPatient();
      PreparedStatement ps  = con.prepareStatement("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence,Inference)"
-                                                           +"VALUES(?,?,?,?,?,?,);");
+                                                           +"VALUES(?,?,?,?,?,?);");
      
      ps.setString(1, pat.getFirstName());
      ps.setString(2, pat.getLastName());
@@ -71,7 +71,7 @@ public class DBconnect {
                    String Inference = rs.getString("Inference");
                    String Sex = rs.getString("Sex");
                    String Residence = rs.getString("Residence");
-                   Date date = rs.getDate("Date");
+                   String date = rs.getString("Date");
                    Patient patient = new Patient(firstName, lastName,PhoneNumber,Sex,Inference,Residence,date);
                     personList.add(patient);// add the person object to the arraylist.
             }
