@@ -21,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
+import java.sql.Date;
 
 
 public class PatientViewUI extends Application {
@@ -30,13 +31,14 @@ public class PatientViewUI extends Application {
         
       TableView<Patient> personTable = new TableView<Patient>(); 
       // create columns for our tableview control element.
-      TableColumn<Patient ,String> PatientNoCol = new TableColumn<>("PatientNo");
+     
       TableColumn<Patient ,String> firstNameCol  = new TableColumn<>("firstName");
        TableColumn <Patient ,String> lastNameCol  = new TableColumn<>("lastName");
         TableColumn <Patient ,String> phoneNumCol  = new TableColumn<>("phoneNumber");
         TableColumn <Patient ,String> sexCol  = new TableColumn<>("Sex");
-        TableColumn <Patient ,String> ResidenceCol  = new TableColumn<>("Residence");;
-        TableColumn <Patient ,String> InferenceCol  = new TableColumn<>("Inference");;
+        TableColumn <Patient ,String> ResidenceCol  = new TableColumn<>("Residence");
+        TableColumn <Patient ,String> InferenceCol  = new TableColumn<>("Inference");
+        TableColumn <Patient ,String> DateCol  = new TableColumn<>("Date");
         
         
             Button button = new Button("Add Patient");
@@ -48,17 +50,17 @@ public class PatientViewUI extends Application {
             // Defines how to fill data for each cell.
       // Get value from property of  Patient.
       
-      PatientNoCol.setCellValueFactory(new PropertyValueFactory<>("PatientNo"));
+     
       firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
       lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
       phoneNumCol.setCellValueFactory(new PropertyValueFactory<>("PhoneNumber"));
       sexCol.setCellValueFactory(new PropertyValueFactory<>("Sex"));
      ResidenceCol.setCellValueFactory(new PropertyValueFactory<>("Residence"));
     InferenceCol.setCellValueFactory(new PropertyValueFactory<>("Inference"));
-       
+       DateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
     
      personTable.setItems( obj.getPersonList()); // we cast the arrayList returned by getPerson() to ObsrvableList type.
-      personTable.getColumns().addAll(PatientNoCol, firstNameCol,  lastNameCol,   phoneNumCol,sexCol,  ResidenceCol, InferenceCol);
+      personTable.getColumns().addAll( firstNameCol,  lastNameCol,   phoneNumCol,sexCol,  ResidenceCol, InferenceCol,DateCol);
        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>(){
            AddPatient pat = new AddPatient();   
         
