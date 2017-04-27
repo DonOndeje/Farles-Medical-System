@@ -101,7 +101,7 @@ public class FarlesLoginUI extends Application {
                                if(!dataAccesor.LoginCredentials()){
                                    System.out.println("Connection Unsuccefful:");
                                    text3.setText("Sorry try again!");
-                                   text3.getStyleClass().add("text");
+                                   text3.setStyle("-fx-text-fill: red");
                                    username_box.clear();
                                    password_box.clear();
                                }else{
