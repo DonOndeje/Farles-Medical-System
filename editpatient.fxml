@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farlesmedical2.EditpatientController">
+   <children>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" />
+      <Label layoutX="70.0" layoutY="56.0" prefHeight="29.0" prefWidth="110.0" style="-fx-text-fill: #dd800d;" text="FirstName:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="100.0" prefHeight="29.0" prefWidth="110.0" style="-fx-text-fill: #dd800d;" text="LastName:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="145.0" prefHeight="29.0" prefWidth="110.0" style="-fx-text-fill: #dd800d;" text="PhoneNumber:">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="189.0" prefHeight="17.0" prefWidth="60.0" style="-fx-text-fill: #dd800d;" text="Sex:">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="225.0" prefHeight="29.0" prefWidth="85.0" style="-fx-text-fill: #dd800d;" text="Residence:">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstnameedit" layoutX="196.0" layoutY="58.0" />
+      <TextField fx:id="lastnameedit" layoutX="196.0" layoutY="96.0" />
+      <TextField fx:id="phonenumberedit" layoutX="196.0" layoutY="141.0" />
+      <TextField fx:id="residenceedit" layoutX="196.0" layoutY="227.0" />
+      <TextField fx:id="sexedit" layoutX="196.0" layoutY="185.0" />
+      <Label layoutX="71.0" layoutY="24.0" prefHeight="25.0" prefWidth="218.0" style="-fx-text-fill: #dd800d;" text="Edit an existing patient details:">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="saveButton" buttonType="RAISED" layoutX="137.0" layoutY="297.0" prefHeight="29.0" prefWidth="96.0" ripplerFill="#252423" style="-fx-background-color: #dd800d;" text="Save" />
+      <JFXButton fx:id="cancelButton" buttonType="RAISED" layoutX="260.0" layoutY="297.0" prefHeight="29.0" prefWidth="96.0" style="-fx-background-color: #dd800d;" text="cancel" />
+   </children>
+</AnchorPane>
