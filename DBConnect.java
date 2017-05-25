@@ -17,27 +17,27 @@ import java.util.ArrayList ;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 public class DBConnect {
-      private final Connection con;
+      private final   Connection con;
      //this Constructor connects to the database.
     public DBConnect (String driverClassName, String dbURL, String user, String password) throws SQLException, ClassNotFoundException {
         Class.forName(driverClassName); // we load the jdbc driver here.
         //Create a connection to the DB using the superUser Credentials.
-        con = DriverManager.getConnection(dbURL, user, password); // we create an object of the connection class.
+        this.con = DriverManager.getConnection(dbURL, user, password); // we create an object of the connection class.
     }
     
         //To add  patient particularsto the database
     public  void  addPatient() throws SQLException{
    
     AddPatientController pat = new AddPatientController();
-     PreparedStatement ps  = con.prepareStatement("INSERT INTO patient(firstName,lastName,phoneNumber,Sex,Residence) VALUES(?,?,?,?,?,);");
+     PreparedStatement ps  = this.con.prepareStatement("insert into patient(firstName,lastName,phoneNumber,Sex,Residence) values (?,?,?,?,?);");
      
-     ps.setString(2, pat.firstnamefield.getText());
-     ps.setString(3, pat.getLastnamefield().getText());
-     ps.setString(4, pat.getPhonenumberfield().getText());
-    ps.setString(5, pat.getSexfield().getText());
-    ps.setString(6, pat.getResidencefield().getText());
+     ps.setString(1,pat.getFirstName().toUpperCase());
+     ps.setString(2, pat.getLastName().toUpperCase());
+     ps.setString(3, pat.getPhoneNumber().toUpperCase());
+    ps.setString(4, pat.getSex().toUpperCase());
+    ps.setString(5, pat.getResidence().toUpperCase());
   
-    ps.executeUpdate();
+    ps.execute();
     
     }
     

@@ -45,8 +45,8 @@
                   <Font name="Arial" size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="addbutton" buttonType="RAISED" layoutX="127.0" layoutY="287.0" onAction="#addpatient" prefHeight="29.0" prefWidth="96.0" ripplerFill="#252423" style="-fx-background-color: #dd800d;" text="Add" />
-            <JFXButton fx:id="cancelbutton" buttonType="RAISED" layoutX="250.0" layoutY="287.0" onAction="#cancelwindow" prefHeight="29.0" prefWidth="96.0" style="-fx-background-color: #dd800d;" text="Cancel" />
+            <JFXButton fx:id="addbutton" buttonType="RAISED" layoutX="127.0" layoutY="287.0" prefHeight="29.0" prefWidth="96.0" ripplerFill="#252423" style="-fx-background-color: #dd800d;" text="Add" />
+            <JFXButton fx:id="cancelbutton" buttonType="RAISED" layoutX="250.0" layoutY="287.0" prefHeight="29.0" prefWidth="96.0" style="-fx-background-color: #dd800d;" text="Cancel" />
          </children>
       </AnchorPane>
    </children>

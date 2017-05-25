@@ -12,9 +12,12 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -23,7 +26,7 @@ import javafx.scene.control.TextField;
  */
 public class AddPatientController implements Initializable {
  @FXML
-    public TextField firstnamefield;
+    private TextField firstnamefield;
 
     @FXML
     private TextField lastnamefield;
@@ -43,48 +46,56 @@ public class AddPatientController implements Initializable {
     @FXML
     private JFXButton cancelbutton;
 
-    public TextField getFirstnamefield() {
-        return firstnamefield;
+private  static String firstName;
+private   static String lastName;
+private   static String phoneNumber;
+private  static String Sex ;
+private  static String Residence;
+
+    public  String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstnamefield(TextField firstnamefield) {
-        this.firstnamefield = firstnamefield;
+    public static void setFirstName(String firstName) {
+        AddPatientController.firstName = firstName;
     }
 
-    public TextField getLastnamefield() {
-        return lastnamefield;
+    public  String getLastName() {
+        return lastName;
     }
 
-    public void setLastnamefield(TextField lastnamefield) {
-        this.lastnamefield = lastnamefield;
+    public static void setLastName(String lastName) {
+        AddPatientController.lastName = lastName;
     }
 
-    public TextField getPhonenumberfield() {
-        return phonenumberfield;
+    public  String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonenumberfield(TextField phonenumberfield) {
-        this.phonenumberfield = phonenumberfield;
+    public  void setPhoneNumber(String phoneNumber) {
+        AddPatientController.phoneNumber = phoneNumber;
     }
 
-    public TextField getResidencefield() {
-        return residencefield;
+    public  String getSex() {
+        return Sex;
     }
 
-    public void setResidencefield(TextField residencefield) {
-        this.residencefield = residencefield;
+    public  void setSex(String Sex) {
+        AddPatientController.Sex = Sex;
     }
 
-    public TextField getSexfield() {
-        return sexfield;
+    public  String getResidence() {
+        return Residence;
     }
 
-    public void setSexfield(TextField sexfield) {
-        this.sexfield = sexfield;
+    public  void setResidence(String Residence) {
+        AddPatientController.Residence = Residence;
     }
+
+
     
     
-    
+    /*
     @FXML
     public void addpatient(ActionEvent event){
           try {
@@ -95,17 +106,43 @@ public class AddPatientController implements Initializable {
      }
           
     }
-    
+   
 
     @FXML
    public void cancelwindow(ActionEvent event) {
 
     }
-
+*/
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+        EventHandler<MouseEvent> eventHandler;
     
+       eventHandler =  new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                firstName = firstnamefield.getText().trim();
+                lastName = lastnamefield.getText().trim();
+                phoneNumber = phonenumberfield.getText().trim();
+                Sex = sexfield.getText().trim();
+                Residence = residencefield.getText().trim();
+                if(firstnamefield.getText().trim().isEmpty() || lastnamefield.getText().trim().isEmpty() || phonenumberfield.getText().trim().isEmpty() || sexfield.getText().trim().isEmpty() || residencefield.getText().trim().isEmpty())
+                      {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                String content = "Please fill all requested fields";
+                alert.setContentText(content);
+                alert.showAndWait();
+            }     else {
+                  try {
+         DBConnect conn = new DBConnect("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/farles", "ADMIN", "jumbotron");
+         conn.addPatient();
+     } catch (SQLException | ClassNotFoundException ex) {
+         Logger.getLogger(AddPatientController.class.getName()).log(Level.SEVERE, null, ex);
+     }
+            }
+            }
+        };   
+      
+       addbutton.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
 }
 }
